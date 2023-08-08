@@ -83,7 +83,7 @@ test('Некорректный формат тела', async () => {
     }
     const response = await request(`${host}:${port}/queue`)
         .put(`/queue`)
-        .set('Accept', 'application/json')
+        .set('Content-type', 'application/json')
         .send(myMessage)
 
     expect(response.status).toBe(400);
@@ -116,7 +116,7 @@ function generateSomeMessages(count) {
 async function sendMessage(message, queueName) {
     return await request(`${host}:${port}/queue`)
         .put(`/${queueName}`)
-        .set('Accept', 'application/json')
+        .set('Content-type', 'application/json')
         .send(message)
 }
 

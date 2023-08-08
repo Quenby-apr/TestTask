@@ -64,7 +64,7 @@ test('Превышение таймаута', async () => {
 async function sendMessage(message, queueName) {
     return await request(`${host}:${port}/queue`)
         .put(`/${queueName}`)
-        .set('Accept', 'application/json')
+        .set('Content-type', 'application/json')
         .send(message)
 }
 
